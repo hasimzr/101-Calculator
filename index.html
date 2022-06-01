@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="general.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></</script>
+        <script>
+            var xyz = 0;
+            var score101 = 0;
+            function rock(x){
+                if(x == 0){
+                    xyz = 0;
+                    $("#rock1").css("color", "black");
+                    $("#rock1").css("background", "none");
+
+                    $("#rock0").css("color", "white");
+                    $("#rock0").css("background", "#BD1A2F");
+
+                    $('.number').removeClass('green').addClass('red');
+                }else if(x == 1){
+                    xyz = 1;
+                    $("#rock0").css("color", "black");
+                    $("#rock0").css("background", "none");
+
+                    $("#rock1").css("color", "white");
+                    $("#rock1").css("background", "#295f47");
+
+                    $('.number').removeClass('red').addClass('green');
+                }
+            }
+            var sayilarOrta = [];
+            var sayilarYan  = [];
+            function number(x){
+                if (xyz == 0){
+                    sayilarOrta.push(x);
+                    $(".middel").empty();
+                    for(var i = 0; i<sayilarOrta.length; i++){
+                        $(".middel").append("<div onclick='middeleDelete("+ i +")' class='numbermin red'><h2>"+sayilarOrta[i]+"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                    }
+                }else{
+                    sayilarYan.push(x);
+                    $(".side").empty();
+                    for(var i = 0; i<sayilarYan.length; i++){
+                        $(".side").append(" <div onclick='sideDelete("+ i +")' class='numbermin green'><h2>"+sayilarYan[i]+"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                    }
+                }
+                calculator()
+            }
+            function middeleDelete(x){
+                var help = sayilarOrta;
+                sayilarOrta = [];
+                for(var i = 0; i<help.length; i++){
+                    if(x != i){
+                        sayilarOrta.push(help[i])
+                    }
+                }
+                $(".middel").empty();
+                for(var i = 0; i<sayilarOrta.length; i++){
+                    $(".middel").append("<div onclick='middeleDelete("+ i +")' class='numbermin red'><h2>"+sayilarOrta[i]+"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                }
+                calculator()
+            }
+            function sideDelete(x){
+                var help = sayilarYan;
+                sayilarYan = [];
+                for(var i = 0; i<help.length; i++){
+                    if(x != i){
+                        sayilarYan.push(help[i])
+                    }
+                }
+                $(".side").empty();
+                for(var i = 0; i<sayilarYan.length; i++){
+                    $(".side").append(" <div onclick='sideDelete("+ i +")' class='numbermin green'><h2>"+sayilarYan[i]+"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                 }
+                 calculator()
+            }
+
+            function calculator(){
+                score101 = 0;
+                if(sayilarOrta.length != 0){
+                    help = 0;
+                    for(var i = 0; i<sayilarOrta.length; i++){
+                        score101 += sayilarOrta[i] * 3;
+                    }
+                }
+                if(sayilarYan.length != 0){
+                    for(var i = 0; i<sayilarYan.length; i++){
+                        score101 += sayilarYan[i];
+                    }
+                }
+                if(score101.toString().length == 1){
+                    $(".score").css("width", "47px");
+                    $(".score").html("<div class='numbermacro black'><h2>"+ score101 +"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                }else if(score101.toString().length == 2){
+                    $(".score").css("width", "94px");
+                    $(".score").html("<div class='numbermacro black'><h2>"+ score101.toString().charAt(0) +"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div><div class='numbermacro black'><h2>"+ score101.toString().charAt(1) +"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                }else if(score101.toString().length == 3 & score101 <= 273){
+                    $(".score").css("width", "138px");
+                    $(".score").html("<div class='numbermacro black'><h2>"+ score101.toString().charAt(0) +"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div><div class='numbermacro black'><h2>"+ score101.toString().charAt(1) +"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div><div class='numbermacro black'><h2>"+ score101.toString().charAt(2) +"</h2><div><i class='demo-icon icon-heart'>&#xe800;</i></div></div>");
+                }
+
+                if(score101 > 100){
+                    $('.numbermacro').removeClass('black').addClass('yellow');
+                }else{
+                    $('.numbermacro').removeClass('yellow').addClass('black');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="score">
+            <div class="numbermacro black">
+                <h2>0</h2>
+                <div>
+                   <i class="demo-icon icon-heart">&#xe800;</i>
+                </div>
+           </div>
+        </div>
+        <div class="middel"></div>
+        <div class="side"></div>
+        <div class="rock">
+            <div id="rock0" onclick="rock(0)" style="border-color: #BD1A2F; background-color: #BD1A2F;" class="span">Orta</div><div id="rock1" onclick="rock(1)" style="border-color: #295f47; color: black;" class="span">Yan</div>
+          <div onclick="number(1)" class="number red">
+              <h2>1</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(2)" class="number red">
+              <h2>2</h2>
+              <div>
+                 <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+         </div>
+          <div onclick="number(3)" class="number red">
+              <h2>3</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(4)" class="number red">
+              <h2>4</h2>
+              <div>
+                <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(5)" class="number red">
+              <h2>5</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(6)" class="number red">
+              <h2>6</h2>
+              <div>
+                <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(7)" class="number red">
+              <h2>7</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(8)" class="number red">
+              <h2>8</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(9)" class="number red">
+              <h2>9</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(10)" class="number red">
+              <h2>10</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(11)" class="number red">
+              <h2>11</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(12)" class="number red">
+              <h2>12</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+          <div onclick="number(13)" class="number red">
+              <h2>13</h2>
+              <div>
+                  <i class="demo-icon icon-heart">&#xe800;</i>
+              </div>
+          </div>
+        </div>
+    </body>
+</html>

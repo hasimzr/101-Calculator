@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('./font/fontello.eot?12036154');
+    src: url('./font/fontello.eot?12036154#iefix') format('embedded-opentype'),
+         url('./font/fontello.woff?12036154') format('woff'),
+         url('./font/fontello.ttf?12036154') format('truetype'),
+         url('./font/fontello.svg?12036154#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  .demo-icon {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: never;
+   
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+   
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+   
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+   
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+   
+    /* You can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+   
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+body{
+    background-color: #eeeeee;
+    width: 375px;
+    height: 667px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+body .number{
+    width: 69px;
+    height: 110px;
+    border-radius: 6px;
+    box-shadow: 3px 2px #909090;
+    margin-left: 16px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    background-color: #ffffff;
+}
+body .number h2{
+    margin: 0;
+    text-align: center;
+    margin-top: 26%;
+    font-size: 38px;
+}
+.green{
+    color: #295f47;
+}
+.red{
+    color: #BD1A2F;
+}
+.yellow{
+    color: #b25200;
+}
+.black{
+    color: black;
+}
+.rock{
+    height: 393px;
+    overflow-y: auto;
+}
+.rock .span{
+    float: left;
+    font-size: 21px;
+    border: 2px solid;
+    color: white;
+    border-bottom: none;
+    width: 46%;
+    text-align: center;
+    margin-left: 7px;
+}
+body .number div{
+    width: 33px;
+    margin-top: 6px;
+    height: 33px;
+    border-radius: 100%;
+    border: 2px solid #f0f0f0;
+    background-color: #f7f7f7;
+    margin-left: auto;
+    margin-right: auto;
+}
+body .number div i{
+    margin: 0;
+    margin-left: 7px;
+    margin-top: 8px;
+    font-size: 19px;
+}
+
+
+
+
+
+body .middel{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    height: 89px;
+    border-right: none;
+    overflow-x: auto;
+    border-bottom: none;
+    width: 373px;
+    background-color: #f7b9b9;
+}
+body .side{
+    border: 2px solid black;
+    margin-bottom: 10px;
+    height: 89px;
+    border-right: none;
+    overflow-x: auto;
+    border-bottom: none;
+    width: 373px;
+    background-color: #69a188;
+}
+body .numbermin{
+    width: 47px;
+    height: 74px;
+    border-radius: 6px;
+    box-shadow: 3px 2px #909090;
+    margin-left: 4px;
+    margin-right: 5px;
+    margin-top: 6px;
+    float: left;
+    background-color: #ffffff;
+}
+body .numbermin h2{
+    margin: 0;
+    text-align: center;
+    margin-top: 15%;
+    font-size: 24px;
+}
+body .numbermin div{
+    width: 20px;
+    margin-top: 6px;
+    height: 20px;
+    border-radius: 100%;
+    border: 2px solid #f0f0f0;
+    background-color: #f7f7f7;
+    margin-left: auto;
+    margin-right: auto;
+}
+body .numbermin div i{
+    margin: 0;
+    margin-left: 5px;
+    margin-top: 6px;
+    font-size: 11px;
+}
+
+
+
+
+
+
+body .score{
+    height: 71px;
+    text-align: center;
+    overflow-x: auto;
+    width: 47px;
+    margin-left: auto;
+    margin-right: auto;
+}
+body .numbermacro{
+    width: 37px;
+    height: 56px;
+    border-radius: 6px;
+    box-shadow: 3px 2px #909090;
+    margin-left: 4px;
+    margin-right: 5px;
+    margin-top: 6px;
+    float: left;
+    background-color: #ffffff;
+}
+body .numbermacro h2{
+    margin: 0;
+    text-align: center;
+    margin-top: 17%;
+    font-size: 17px;
+}
+body .numbermacro div{
+    width: 15px;
+    margin-top: 6px;
+    height: 15px;
+    border-radius: 100%;
+    border: 2px solid #f0f0f0;
+    background-color: #f7f7f7;
+    margin-left: auto;
+    margin-right: auto;
+}
+body .numbermacro div i{
+    margin: 0;
+    margin-left: 5px;
+    margin-top: 6px;
+    font-size: 9px;
+}
